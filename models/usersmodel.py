@@ -10,3 +10,6 @@ class Users(Base):
     username = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)
     time_created = Column(TIMESTAMP, nullable=False, server_default=func.now())
+
+
+

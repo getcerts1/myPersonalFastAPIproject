@@ -29,7 +29,7 @@ def get_user(email: str, db: Session):
 
     return check_user_exists
 
-def edited_user(username, updated_schema, db: Session):
+def put_user(username, updated_schema, db: Session):
     #compare user provided password to db passwords, if the same continue as normal, if different
     #hash new password
     user = db.query(Users).filter(Users.username == username).first()
@@ -48,6 +48,23 @@ def edited_user(username, updated_schema, db: Session):
     return updated_user
 
 
+def patch_user(username, updated_schema, db: Session):
+    user_exists = db.query(Users).filter(Users.username == username).first()
 
+    if not user_exists:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="user does not exist")
+
+    if "password" in updated_schema and updated_schema["password"]:
+        updated_schema["password"] = hash_password(updated_schema["password"])
+
+    for key, value in updated_schema.items():
+        if value is not None:
+            setattr(user_exists, key, value)
+
+    db.add(user_exists)
+    db.commit()
+    db.refresh(user_exists)
+
+    return user_exists
 
 

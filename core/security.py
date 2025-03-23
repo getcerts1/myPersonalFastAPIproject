@@ -1,4 +1,5 @@
 from passlib.context import CryptContext
+from jose import jwt, JWTError
 
 
 password_context = CryptContext(schemes="bcrypt")
@@ -11,3 +12,6 @@ def hash_password(password: str):
 
 def verify_password(old_password: str, new_password: str):
     return password_context.verify(old_password, new_password)
+
+
+
