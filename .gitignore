@@ -1,0 +1,48 @@
+core.config.py
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.pyo
+
+# Virtual Environment
+venv/
+.env/
+.venv/
+env/
+
+# FastAPI / Uvicorn logs
+*.log
+
+# IDE / Editor configs
+.vscode/
+.idea/
+*.swp
+
+# Environment variables or secrets
+.env
+secrets.py
+
+# Databases (if using SQLite locally)
+*.db
+*.sqlite3
+
+# Migrations (optional depending on workflow)
+alembic.ini
+migrations/versions/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Coverage & testing
+htmlcov/
+.coverage
+pytest_cache/
+.tox/
+.cache/

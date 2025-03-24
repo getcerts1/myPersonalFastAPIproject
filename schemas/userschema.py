@@ -7,6 +7,7 @@ from typing_extensions import Optional
 class UserCreate(BaseModel):
     username: EmailStr
     password: str
+    role: Optional[str] = None
 
     class Config:
         from_attributes = True
@@ -17,6 +18,7 @@ class UserResponse(BaseModel):
     id: int
     username: str
     time_created: datetime
+    role:str
     message: Optional[str] = None
 
     class Config:

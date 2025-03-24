@@ -1,8 +1,8 @@
 from db.database import get_db
-from fastapi import HTTPException, Depends, status, Response
+from fastapi import HTTPException, status, Response
 from sqlalchemy.orm import Session
 from models.usersmodel import Users
-from core.security import hash_password, verify_password
+from core.security import hash_password
 
 
 
