@@ -1,0 +1,1 @@
+In this repo, I will be showcasing my fastapi app building skills with an end-to-end application that integrates postgresql databases, uses authentication, pydantic schema models, sqlalchemy for connecting python code to the backend database and Postman for testing.
